@@ -30,9 +30,15 @@ pub fn LinkedList(comptime T: type) type {
             var start = self.startNode;
             while (start != null) {
                 const next_node: ?*Node(T) = start.?.next;
+                // cannot destroy a null
                 self.allocator.destroy(start.?);
                 start = next_node;
             }
+        }
+
+        pub fn at(self: Self, index: usize) error{OutOfRange}!T {
+            const node = try self.nodeAt(index);
+            return node.value;
         }
 
         pub fn nodeAt(self: Self, index: usize) error{OutOfRange}!*Node(T) {
@@ -118,7 +124,7 @@ test "linkedlist append" {
     try expect(ll.startNode.?.prev == null);
 
     try expect(ll.endNode.?.value == 3);
-    // try expect(ll.endNode.?.next == null);
+    try expect(ll.endNode.?.next == null);
 
     try expect(ll.length == 3);
 }
@@ -143,4 +149,21 @@ test "linkedlist nodeAt" {
     try expect(node0.next == node1);
     try expect(node1.next == node2);
     try expect(node2.next == null);
+}
+
+test "linkedlist at" {
+    var ll = LinkedList(u32).init(testing.allocator);
+    defer ll.deinit();
+
+    try ll.append(1);
+    try ll.append(2);
+    try ll.append(3);
+
+    const node0 = try ll.at(0);
+    const node1 = try ll.at(1);
+    const node2 = try ll.at(2);
+
+    try expect(node0 == 1);
+    try expect(node1 == 2);
+    try expect(node2 == 3);
 }
