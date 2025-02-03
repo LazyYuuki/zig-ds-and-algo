@@ -1,0 +1,18 @@
+# Ignore build artifacts
+zig-cache/
+zig-out/
+
+# Ignore temporary files
+*.o
+*.bin
+*.a
+*.so
+*.exe
+*.dll
+
+# Ignore editor and OS-specific files
+*.swp
+*.swo
+*.DS_Store
+*.log
+.zig-cache
