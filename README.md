@@ -4,19 +4,19 @@ This repository is a collection of basic DS and Algo implemented in pure Zig. It
 
 The intention is to implemented the following:
 - Linear
-    - [~] Array 
-    - [~] LinkedList
-    - [] Stack
-    - [] Queue
+    - 🚧 Array 
+    - 🚧 LinkedList
+    - [ ] Stack
+    - [ ] Queue
 
 - Non-linear
-    - [] Tree
-        - [] Binary Search
-        - [] AVL / Red-black
-        - [] Heap
-        - [] Trie
-    - [] Graph
-        - [] (Un)directed
-        - [] (A)cyclic
-        - [] (Un)weighted
-    - [] Hash
+    - [ ] Tree
+        - [ ] Binary Search
+        - [ ] AVL / Red-black
+        - [ ] Heap
+        - [ ] Trie
+    - [ ] Graph
+        - [ ] (Un)directed
+        - [ ] (A)cyclic
+        - [ ] (Un)weighted
+    - [ ] Hash
