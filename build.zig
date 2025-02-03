@@ -6,8 +6,8 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
 
     const lib = b.addStaticLibrary(.{
-        .name = "linear",
-        .root_source_file = b.path("src/linear.zig"),
+        .name = "ds",
+        .root_source_file = b.path("src/lib.zig"),
         .target = target,
         .optimize = optimize,
     });
@@ -15,7 +15,7 @@ pub fn build(b: *std.Build) void {
     b.installArtifact(lib);
 
     const lib_unit_tests = b.addTest(.{
-        .root_source_file = b.path("src/linear.zig"),
+        .root_source_file = b.path("src/lib.zig"),
         .target = target,
         .optimize = optimize,
     });
